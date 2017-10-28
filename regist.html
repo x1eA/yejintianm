@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/regist.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--[if IE 7]> 
+<script type="text/javascript"> 
+  $(document).ready(function(){
+    $(".regist-password").html("<input type='password' />");
+    $(".insure-password").html("<input type='password' />");
+  });
+</script> 
+<![endif]--> 
+<!--[if IE 8]> 
+<script type="text/javascript"> 
+  $(document).ready(function(){
+    $(".regist-password").html("<input type='password' />");
+    $(".insure-password").html("<input type='password' />");
+  });
+</script> 
+<![endif]--> 
+<style>
+  .right{
+    color:green;
+  }
+  .error{
+    color:red;
+    font-size: 13px
+  }
+  .show-msg{
+    display:inline-block;
+    height:20px;
+    margin-left: 130px;
+    font-size: 13px
+  }
+  .active{border:3px solid red}
+</style>
+<style>
+        /* 滑动控件容器,亮灰色背景 */
+        #dragContainer {
+            position: relative;
+            display: inline-block;
+            background: #e8e8e8;
+            width: 300px;
+            height: 33px;
+            border: 2px solid #e8e8e8;
+        }
+        /* 滑块左边部分,绿色背景 */
+        #dragBg {
+            position: absolute;
+            background-color: #7ac23c;
+            width: 0px;
+            height: 100%;
+        }
+        /* 滑动验证容器文本 */
+        #dragText {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* 文字水平居中 */
+            text-align: center;
+            /* 文字垂直居中,这里不能用百分比,因为百分比是相对原始line-height的,而非div高度 */
+            line-height: 33px;
+            /* 文本不允许选中 */
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        /* 滑块 */
+        #dragHandler {
+            position: absolute;
+            width: 40px;
+            height: 100%;
+            cursor: move;
+        }
+        /* 滑块初始背景 */
+        .dragHandlerBg {
+            background: #fff no-repeat center url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0ZDhlNWY5My05NmI0LTRlNWQtOGFjYi03ZTY4OGYyMTU2ZTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTEyNTVEMURGMkVFMTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTEyNTVEMUNGMkVFMTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MTc5NzNmZS02OTQxLTQyOTYtYTIwNi02NDI2YTNkOWU5YmUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NGQ4ZTVmOTMtOTZiNC00ZTVkLThhY2ItN2U2ODhmMjE1NmU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+YiRG4AAAALFJREFUeNpi/P//PwMlgImBQkA9A+bOnfsIiBOxKcInh+yCaCDuByoswaIOpxwjciACFegBqZ1AvBSIS5OTk/8TkmNEjwWgQiUgtQuIjwAxUF3yX3xyGIEIFLwHpKyAWB+I1xGSwxULIGf9A7mQkBwTlhBXAFLHgPgqEAcTkmNCU6AL9d8WII4HOvk3ITkWJAXWUMlOoGQHmsE45ViQ2KuBuASoYC4Wf+OUYxz6mQkgwAAN9mIrUReCXgAAAABJRU5ErkJggg==");
+        }
+        /* 验证成功时的滑块背景 */
+        .dragHandlerOkBg {
+            background: #fff no-repeat center url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0ZDhlNWY5My05NmI0LTRlNWQtOGFjYi03ZTY4OGYyMTU2ZTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDlBRDI3NjVGMkQ2MTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDlBRDI3NjRGMkQ2MTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDphNWEzMWNhMC1hYmViLTQxNWEtYTEwZS04Y2U5NzRlN2Q4YTEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NGQ4ZTVmOTMtOTZiNC00ZTVkLThhY2ItN2U2ODhmMjE1NmU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+k+sHwwAAASZJREFUeNpi/P//PwMyKD8uZw+kUoDYEYgloMIvgHg/EM/ptHx0EFk9I8wAoEZ+IDUPiIMY8IN1QJwENOgj3ACo5gNAbMBAHLgAxA4gQ5igAnNJ0MwAVTsX7IKyY7L2UNuJAf+AmAmJ78AEDTBiwGYg5gbifCSxFCZoaBMCy4A4GOjnH0D6DpK4IxNSVIHAfSDOAeLraJrjgJp/AwPbHMhejiQnwYRmUzNQ4VQgDQqXK0ia/0I17wJiPmQNTNBEAgMlQIWiQA2vgWw7QppBekGxsAjIiEUSBNnsBDWEAY9mEFgMMgBk00E0iZtA7AHEctDQ58MRuA6wlLgGFMoMpIG1QFeGwAIxGZo8GUhIysmwQGSAZgwHaEZhICIzOaBkJkqyM0CAAQDGx279Jf50AAAAAABJRU5ErkJggg==");
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var dragContainer = document.getElementById("dragContainer");
+            var dragBg = document.getElementById("dragBg");
+            var dragText = document.getElementById("dragText");
+            var dragHandler = document.getElementById("dragHandler");
+
+            //滑块最大偏移量
+            var maxHandlerOffset = dragContainer.clientWidth - dragHandler.clientWidth;
+            //是否验证成功的标记
+            var isVertifySucc = false;
+            initDrag();
+
+            function initDrag() {
+                dragText.textContent = "拖动滑块验证";
+                dragHandler.addEventListener("mousedown", onDragHandlerMouseDown);
+            }
+
+            function onDragHandlerMouseDown() {
+                document.addEventListener("mousemove", onDragHandlerMouseMove);
+                document.addEventListener("mouseup", onDragHandlerMouseUp);
+            }
+
+            function onDragHandlerMouseMove() {
+                /*
+                html元素不存在width属性,只有clientWidth
+                offsetX是相对当前元素的,clientX和pageX是相对其父元素的
+                */
+                var left = event.clientX -590-30- dragHandler.clientWidth / 2;
+                if(left < 0) {
+                    left = 0;
+                } else if(left > maxHandlerOffset) {
+                    left = maxHandlerOffset;
+                    verifySucc();
+                }
+                dragHandler.style.left = left + "px";
+                dragBg.style.width = dragHandler.style.left;
+            }
+            function onDragHandlerMouseUp() {
+                document.removeEventListener("mousemove", onDragHandlerMouseMove);
+                document.removeEventListener("mouseup", onDragHandlerMouseUp);
+                dragHandler.style.left = 0;
+                dragBg.style.width = 0;
+            }
+
+            //验证成功
+            function verifySucc() {
+                isVertifySucc = true;
+                dragText.textContent = "验证通过";
+                dragText.style.color = "white";
+                dragHandler.setAttribute("class", "dragHandlerOkBg");
+                dragHandler.removeEventListener("mousedown", onDragHandlerMouseDown);
+                document.removeEventListener("mousemove", onDragHandlerMouseMove);
+                document.removeEventListener("mouseup", onDragHandlerMouseUp);
+            };
+        }
+    </script>
+</head>
+
+<body bgcolor="#e0d6df">
+  <div id="header">
+    <!--<div class="online-service">
+      <p><img src="img/ico-online-service.gif" width="71" height="28" alt="在线客服" /></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+    </div>-->
+    <div class="header-top">
+    <div class="logo-container"><img src="img/logo-fujia.png" width="197" height="51" alt="logo" /></div>
+    <div class="header-nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="information.html">资讯动态</a></li>
+        <li><a href="product.html">产品分类</a></li>
+        <li><a href="data.html">修改资料</a></li>
+        <li><a href="cart.html">购物车</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </div>
+    </div>
+    <div class="header-bottom">
+      <ul class="hot-search">
+        <li class="search-title">热门搜索：</a></li>
+        <li><a href="details.html">百步飞剑</a></li>
+        <li><a href="details.html">夜尽天明</a></li>
+        <li><a href="details.html">诸子百家</a></li>
+        <li><a href="details.html">万里长城</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="text" onfocus="this.value='';$(this).css('color','#313131');" value="请输入商品名称或输入关键字" />
+        <a href="javascript:;"><img src="img/ico-search.gif" alt="搜索" width="64" height="23" /></a>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <div class="regist-con">
+      <form action="data/register.php">
+        <fieldset>
+          <legend>用户注册</legend>
+          <ul class="regist-cont">
+            <li class="check-uname">
+              <dl>
+                <dt>用户名：</dt>
+                <dd class="user-input"><input type="text" name="uname" placeholder="请输入您的用户名" required minlength="3" maxlength="9" onfocus="$(this).css('color','#000').val('');" /></dd>
+              </dl>
+              <span>*</span>
+              <p class="show-msg">用户名为3-8位字母或者数字</p>
+            </li>
+            <li class="upwd-check">
+              <dl>
+                <dt>密码：</dt>
+                <dd class="regist-password"><input type="password" name="upwd" required minlength="6" placeholder="请输入您的密码" onfocus="$(this).attr('type','password').css('color','#000').val('');" /></dd>
+              </dl>
+              <span>*</span>
+              <p class="show-msg">密码为3-8位字母或者数字</p>
+            </li>
+            <li class="check-upwd">
+              <dl>
+                <dt>确认密码：</dt>
+                <dd class="insure-password"><input type="text" placeholder="请再次输入您的密码" onfocus="$(this).attr('type','password').css('color','#000').val('');" /></dd>
+              </dl>
+              <span>*</span>
+              <p class="show-msg"></p>
+            </li>
+            <li class="check-phone">
+              <dl>
+                <dt>电话：</dt>
+                <dd><input class="phone" type="text" placeholder="请输入您的电话号码" onfocus="$(this).css('color','#000').val('');" /></dd>
+              </dl>
+              <span>*</span>
+              <p class="show-msg"></p>
+            </li>
+            <li>
+              <dl>
+                <dt>电子邮箱：</dt>
+                <dd><input type="email" placeholder="请输入您的电子邮箱" onfocus="$(this).css('color','#000').val('');" /></dd>
+              </dl>
+              <span>*</span>
+              <p class="show-msg"></p>
+            </li>
+          </ul>
+          <div id="dragContainer" style="margin-left:380px;margin-bottom:30px">
+            <div id="dragBg"></div>
+            <div id="dragText"></div>
+            <div id="dragHandler" class="dragHandlerBg"></div>
+          </div>
+          <div style="margin-left:250px;font-size:18px;margin-bottom:20px">
+            <p class="photo_selected">
+              <span style="margin-right:10px">选择您的头像:</span>
+              <img src="img/headimg/avatar1.jpg" width="80" height="80" alt="头像" class="select_avatar active" />
+              <img src="img/headimg/avatar2.jpg" width="80" height="80" alt="头像" class="select_avatar" />
+              <img src="img/headimg/avatar3.jpg" width="80" height="80" alt="头像" class="select_avatar" />
+              <img src="img/headimg/avatar4.jpg" width="80" height="80" alt="头像" class="select_avatar" />
+            </p>
+          </div>
+          <script>
+            /**选择当前选中头像 */
+            $(".select_avatar").click(function (e) {
+              // $(this).css("border","3px solid red");
+              $(this).addClass("active").siblings().removeClass("active");
+              
+            })
+          </script>
+          <p class="btn-regist"><a href="javascript:;"><img src="img/btn-regist02.gif" width="223" height="30" alt="注册" /></a></p>
+          <p class="login-direct"><a href="index.html">直接登录</a></p>
+  		</fieldset>
+      </form>
+    </div>
+  </div>
+<div id="footer">
+    <div class="footer-logo">
+      秦时明月
+    </div>
+    <dl class="company-info">
+      <dt>公司信息:玄机出品小时光所有</dt>
+      <dd>TEL. 13017192642</dd>
+      <dd>wechat. alex208845</dd>
+      <dd>mail: alex208845@163.com</dd>
+    </dl>
+  </div>
+  <div style="text-align:center">China is the champion</div>
+
+  
+
+
+  <script>
+    /*验证用户名*/
+    $(".user-input>input").blur(function(){
+      var $uname=$(this).val();
+      var unameReg=/^[a-zA-Z0-9]{3,8}$/;
+      if(!unameReg.test($uname)){
+        $(".check-uname .show-msg").html("用户名格式不正确,请填入3-8位字母或者数字").addClass("error").removeClass("right");
+        return;
+      }
+      $.get("data/check_uname.php",{uname:$uname}).then(data=>{
+        if(data==="该用户名可用！")
+          $(".check-uname .show-msg").html(data).removeClass("error").addClass("right");
+        else $(".check-uname .show-msg").html(data).addClass("error").removeClass("right");
+      })
+    })
+    /*验证输入密码*/
+    $(".regist-password>input").blur(function(){
+       $(".upwd-check .show-msg").html("");
+      var n=$(".regist-password>input").val();
+      var upwdReg=/^[a-zA-Z0-9]{3,8}$/;
+      if(!upwdReg.test(n)){
+        $(".upwd-check .show-msg").html("密码格式不正确,请填入3-8位字母或者数字").addClass("error").removeClass("right");
+        return;
+      }
+    })
+      $(".insure-password>input").blur(function(){
+        var n=$(".regist-password>input").val();
+        var m=$(".insure-password>input").val();
+        if(m===n) 
+         $(".check-upwd .show-msg").html("两次输入一致!").removeClass("error").addClass("right");
+        else  $(".check-upwd .show-msg").html("两次输入不一致!").addClass("error").removeClass("right");
+      })
+
+    /*验证电话*/
+    $(".phone").blur(function(){
+       $(".check-phone .show-msg").html("");
+      var n=$(".phone").val();
+      var upwdReg=/^1[3|4|5|8][0-9]\d{4,8}$/;
+      if(!upwdReg.test(n)){
+        $(".check-phone .show-msg").html("号码格式不正确,请填入正确的号码").addClass("error").removeClass("right");
+        return;
+      }
+    })
+    /*提交注册表单*/
+    $(".btn-regist img").click((e)=>{
+      var uname=$(".user-input>input").val();
+      var upwd=$(".regist-password>input").val();
+      var avatar=$(".active").attr("src");
+      $.ajax({
+        type:"get",
+        url:"data/register.php",
+        data:{uname:uname,upwd:upwd,avatar:avatar},
+        success:function(data){
+          alert("注册成功"+data);
+          sessionStorage.setItem("uname",uname)
+          location.href="index.html";
+          // window.
+        },
+        error:function(){}
+      })
+    })
+  </script>
+</body>
+</html>

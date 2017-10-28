@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资讯2</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/information.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/fadebanner.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script src="js/login.js"></script>
+<style>
+  .kongge{text-indent:2em} 
+</style>
+</head>
+
+<body bgcolor="#e0d6df">
+  <div id="header">
+    <!--<div class="online-service">
+      <p><img src="img/ico-online-service.gif" width="71" height="28" alt="在线客服" /></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+      <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site="当鼠标移动上来显示的文字"&Menu=yes">
+      <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+      </a></p>
+    </div>-->
+    <div class="header-top">
+    <div class="logo-container"><img src="img/logo-fujia.png" width="197" height="51" alt="logo" /></div>
+    <div class="header-nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="information.html">资讯动态</a></li>
+        <li><a href="product.html">产品分类</a></li>
+        <li><a href="data.html">修改资料</a></li>
+        <li><a href="cart.html">购物车</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </div>
+    </div>
+    <div class="header-bottom">
+      <ul class="hot-search">
+        <li class="search-title">热门搜索：</a></li>
+        <li><a href="details.html">百步飞剑</a></li>
+        <li><a href="details.html">夜尽天明</a></li>
+        <li><a href="details.html">诸子百家</a></li>
+        <li><a href="details.html">万里长城</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="text" onfocus="this.value='';$(this).css('color','#313131');" value="请输入商品名称或输入关键字" />
+        <a href="javascript:;"><img src="img/ico-search.gif" alt="搜索" width="64" height="23" /></a>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <div id="nav-side">
+      <!--<div class="login-container login_con">
+        <p class="login-title"><img src="img/title-login.gif" alt="会员登入" width="147" height="23" /></p>
+        <form>
+          <ul class="login-input">
+            <li>
+              <label>账号：</label>
+              <input type="text" id="uname" autofocus/>
+            </li>
+            <li>
+              <label>密码：</label>
+              <input type="password" id="upwd" />
+            </li>
+          </ul>
+          <p class="f-password"><a href="javascript:;">忘记密码？</a></p>
+          <p class="login-btn">
+            <a href="javascript:;"><img src="img/btn-login.gif" width="61" height="19" alt="登入" /></a>
+            <a href="regist.html"><img src="img/btn-regist.gif" width="61" height="19" alt="注册" /></a>
+          </p>
+        </form>
+      </div>-->
+      
+      <!--登录-->
+      <!--<script>
+        $(".login-btn>a:first-child").click(function(e){
+          e.preventDefault();
+          var u=$("#uname").val();
+          var p=$("#upwd").val();
+          $.ajax({
+            type:"get",
+            url:"data/login.php",
+            data:{uname:u,upwd:p},
+            success:function(data){},
+            error:function(data){}
+          }).then(data=>{
+            $(".user-name").html(data.uname);
+            if(data.uname!=undefined){
+              $(".login-suc>dt>img").attr("src",data.avatar);
+              $(".login_con").hide();
+            }
+          })
+        })
+      </script>-->
+      <div class="login-container">
+        <dl class="login-suc">
+          <dt><img src="img/img-photo.jpg" width="62" height="62" alt="头像" /></dt>
+          <dd>
+            <p class="user-name">请登录！</p>
+            <a href=""><p style="font-size:12px">欢迎回来!</p></a>
+          </dd>
+        </dl>
+        <p class="my-fujia"><a href="record.html"><img src="img/btn-personal.gif" width="89" height="21" alt="我的芙佳" /></a></p>
+      </div>
+      <div class="pro-kinds">
+        <!--<h1 class="kinds-tit">产品分类</h1>
+        <div class="kinds-cont">
+          <div class="kinds-det">
+            <h2 class="det-tit">新鲜水果</h2>
+            <div class="det-content">
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠...</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+          <div class="kinds-det">
+            <h2 class="det-tit">有机蔬菜</h2>
+            <div class="det-content">
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠...</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+          <div class="kinds-det">
+            <h2 class="det-tit">日用百货</h2>
+            <div class="det-content">
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠...</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <!--<div class="hot-sale">
+        <h1 class="hot-tit">热卖商品</h1>
+        <div class="hot-cont">
+            <ul class="hot-list">
+                <li>
+                    <p><a href="details.html?pid=1"><img src="image/tm01.jpg" width="136" height="112" alt="安岳柠檬"></a></p>
+                    <p class="hot-name"><a href="details.html?pid=1">百步飞剑---荆天明</a></p>
+                    <p class="hot-name"><span>￥66.66</span></p>
+                </li>
+                <li>
+                    <p><a href="details.html?pid=2"><img src="image/tm02.jpg" width="136" height="112" alt="安岳柠檬"></a></p>
+                    <p class="hot-name"><a href="details.html?pid=2">百步飞剑---高月</a></p>
+                    <p class="hot-name"><span>￥66.66</span></p>
+                </li>
+                <li>
+                    <p><a href="details.html?pid=3"><img src="image/tm03.jpg" width="136" height="112" alt="安岳柠檬"></a></p>
+                    <p class="hot-name"><a href="details.html?pid=3">百步飞剑--赤练</a></p>
+                    <p class="hot-name"><span>￥66.66</span></p>
+                 </li>
+            </ul>
+        </div>
+      </div>-->
+    </div>
+    <div id="content">
+      <div class="banner-cont">
+        <ul class="fade-banner" control-fade="banner-control">
+          <li><a href="product.html"><img src="img/banner/bnr-photo01.jpg" width="744" height="303" alt="蒙自石榴" /></a></li>
+          <li><a href="product.html"><img src="img/banner/bnr-photo02.jpg" width="744" height="303" alt="蒙自石榴" /></a></li>
+          <li><a href="product.html"><img src="img/banner/bnr-photo03.jpg" width="744" height="303" alt="蒙自石榴" /></a></li>
+          <li><a href="product.html"><img src="img/banner/bnr-photo04.jpg" width="744" height="303" alt="蒙自石榴" /></a></li>
+          <li><a href="product.html"><img src="img/banner/bnr-photo05.jpg" width="744" height="303" alt="蒙自石榴" /></a></li>
+        </ul>
+        <ul class="banner-control">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="info-detail">
+        <h1 class="title">资讯动态</h1>
+        <h2 class="info-title">芙佳超市2014年11月12月优惠券</h2>
+        <p class="info-message">
+          <span>新闻来源：www.baidu.com</span>
+          <span>发布时间：2014-11-01</span>
+        </p>
+        <div class="info-content">
+          <p><img src="img/information/img-information01.jpg" alt="猕猴桃" width="283" height="224" /></p>
+          <p>芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014。</p>
+          <p>芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014。</p>
+          <p>芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014。</p>
+          <p>芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014年11月12月优惠券,芙佳超市2014。</p>
+        </div>
+        <div class="info-tab">
+          <p class="info-prev"><span>上一篇：</span><a href="information01.html">芙佳超市新年让利优惠活动</a></p>
+          <p class="info-next"><span>下一篇：</span><a href="information01.html">芙佳超市新年让利优惠活动</a></p>
+        </div>
+      </div>
+      
+      
+    </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footer-logo">
+      秦时明月
+    </div>
+    <dl class="company-info">
+      <dt>公司信息:玄机出品小时光所有</dt>
+      <dd>TEL. 13017192642</dd>
+      <dd>wechat. alex208845</dd>
+      <dd>mail: alex208845@163.com</dd>
+    </dl>
+  </div>
+  <div style="text-align:center">China is the champion</div>
+</body>
+<script>
+  $(".fade-banner").fadeBanner();//轮播图插件初始化，注意control-fade，contrl-tab两个属性规定是否有小圆点控制按钮和tab切换的按钮
+</script>
+<script>
+  (()=>{
+    $.get("data/news_details.php",location.search.slice(1)).then(data=>{
+      console.log(data);
+      var n=parseInt(location.search.slice(5)-1);
+      var m=n+2;
+      console.log(n);
+      console.log(m);
+      var html="";
+      html+=`
+        <h1 class="title">资讯动态</h1>
+        <h2 class="info-title">${data.details.nname}</h2>
+        <p class="info-message">
+          <span>新闻来源：${data.details.origin}</span>
+          <span>发布时间：${data.details.show_time}</span>
+        </p>
+        <div class="info-content">
+          <p><img src="${data.details.news_pic}" alt="xx" width="283" height="224" /></p>
+          <p>${data.details.news_content}</p>
+        </div>
+        <div class="info-tab">
+          <p class="info-prev"><a href="information01.html?nid=${n}">上一篇：</a></p>
+          <p class="info-next"><a href="information01.html?nid=${m}">下一篇：</a></p>
+        </div>
+      `;
+      $(".info-detail").html(html);
+    })
+  })()
+</script>
+</html>

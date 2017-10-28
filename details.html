@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>手办详情</title>
+    <link rel="stylesheet" href="css/common.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/product.css" type="text/css" media="all"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <link rel="stylesheet" href="css/animate.min.css">
+    
+
+    <!----------商品图片放大---------->
+    <link rel="stylesheet" type="text/css" href="css/lrtk.css">
+    <script src="js/MagicZoom.js" type="text/javascript"></script>
+    <!----------商品图片放大---------->
+
+</head>
+<body bgcolor="#e0d6df">
+<div id="header">
+    <!--<div class="online-service">
+        <p><img src="../img/ico-online-service.gif" width="71" height="28" alt="在线客服"/></p>
+        <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site=" 当鼠标移动上来显示的文字"&Menu=yes">
+            <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+            </a></p>
+        <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site=" 当鼠标移动上来显示的文字"&Menu=yes">
+            <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+            </a></p>
+        <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site=" 当鼠标移动上来显示的文字"&Menu=yes">
+            <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+            </a></p>
+        <p><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=811052479&Site=" 当鼠标移动上来显示的文字"&Menu=yes">
+            <img border="0" src="http://wpa.qq.com/pa?p=1:811052479:10" alt="">
+            </a></p>
+    </div>-->
+    <div class="header-top">
+        <div class="logo-container"><img src="img/logo-fujia.png" width="197" height="51" alt="logo"/></div>
+        <div class="header-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="information.html">资讯动态</a></li>
+                <li><a href="product.html">产品分类</a></li>
+                <li><a href="record.html">我的芙佳</a></li>
+                <li><a href="cart.html">购物车</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <ul class="hot-search">
+        <li class="search-title">热门搜索：</a></li>
+        <li><a href="details.html">百步飞剑</a></li>
+        <li><a href="details.html">夜尽天明</a></li>
+        <li><a href="details.html">诸子百家</a></li>
+        <li><a href="details.html">万里长城</a></li>
+      </ul>
+        <div class="search-container">
+            <input type="text" onfocus="this.value='';$(this).css('color','#313131');" value="请输入商品名称或输入关键字"/>
+            <a href="javascript:;"><img src="img/ico-search.gif" alt="搜索" width="64" height="23"/></a></div>
+    </div>
+</div>
+<div id="container">
+    <div id="nav-side">
+      <!--<div class="login-container login_con">
+        <p class="login-title"><img src="img/title-login.gif" alt="会员登入" width="147" height="23" /></p>
+        <form>
+          <ul class="login-input">
+            <li>
+              <label>账号：</label>
+              <input type="text" id="uname" autofocus/>
+            </li>
+            <li>
+              <label>密码：</label>
+              <input type="password" id="upwd" />
+            </li>
+          </ul>
+          <p class="f-password"><a href="javascript:;">忘记密码？</a></p>
+          <p class="login-btn">
+            <a href="javascript:;"><img src="img/btn-login.gif" width="61" height="19" alt="登入" /></a>
+            <a href="regist.html"><img src="img/btn-regist.gif" width="61" height="19" alt="注册" /></a>
+          </p>
+        </form>
+      </div>-->
+      
+      <!--登录-->
+      <!--<script>
+        $(".login-btn>a:first-child").click(function(e){
+          e.preventDefault();
+          var u=$("#uname").val();
+          var p=$("#upwd").val();
+          $.ajax({
+            type:"get",
+            url:"data/login.php",
+            data:{uname:u,upwd:p},
+            success:function(data){},
+            error:function(data){}
+          }).then(data=>{
+            $(".user-name").html(data.uname);
+            if(data.uname!=undefined){
+              $(".login-suc>dt>img").attr("src",data.avatar);
+              $(".login_con").hide();
+            }
+          })
+        })
+      </script>-->
+      <div class="login-container">
+        <dl class="login-suc">
+          <dt><img src="img/img-photo.jpg" width="62" height="62" alt="头像" /></dt>
+          <dd>
+            <p class="user-name">请登录！</p>
+            <a href=""><p style="font-size:12px"></p></a>
+            <p><a href="" style="red">退出！</a></p>
+          </dd>
+        </dl>
+        <p class="my-fujia"><a href="record.html"><img src="img/btn-personal.gif" width="89" height="21" alt="我的芙佳" /></a></p>
+      </div>
+      <div class="pro-kinds">
+        <!--<h1 class="kinds-tit">产品分类</h1>
+        <div class="kinds-cont">
+          <div class="kinds-det">
+            <h2 class="det-tit">新鲜水果</h2>
+            <div class="det-content">
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠...</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+          <div class="kinds-det">
+            <h2 class="det-tit">有机蔬菜</h2>
+            <div class="det-content">
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠...</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+          <div class="kinds-det">
+            <h2 class="det-tit">日用百货</h2>
+            <div class="det-content">
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠...</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">猕猴桃</a>
+              <a href="details.html">苹果</a>
+              <a href="details.html">梨青柠檬</a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <div class="hot-sale">
+        <h1 class="hot-tit">热卖商品</h1>
+        <div class="hot-cont">
+            <ul class="hot-list">
+                <li>
+                    <p><a href="details.html?pid=1"><img src="image/tm01.jpg" width="136" height="112" alt="安岳柠檬"></a></p>
+                    <p class="hot-name"><a href="details.html?pid=1">百步飞剑---荆天明</a></p>
+                    <p class="hot-name"><span>￥66.66</span></p>
+                </li>
+                <li>
+                    <p><a href="details.html?pid=2"><img src="image/tm02.jpg" width="136" height="112" alt="安岳柠檬"></a></p>
+                    <p class="hot-name"><a href="details.html?pid=2">百步飞剑---高月</a></p>
+                    <p class="hot-name"><span>￥66.66</span></p>
+                </li>
+                <li>
+                    <p><a href="details.html?pid=3"><img src="image/tm03.jpg" width="136" height="112" alt="安岳柠檬"></a></p>
+                    <p class="hot-name"><a href="details.html?pid=3">百步飞剑--赤练</a></p>
+                    <p class="hot-name"><span>￥66.66</span></p>
+                 </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+        <div class="pro-detail">
+            <div class="pro-img">
+                <div id="tsShopContainer">
+                    <div id="tsImgS">
+                        <a href="image/01.jpg" title="Images" class="MagicZoom" id="MagicZoom">
+                            <img width="300" height="300" src="image/01.jpg"/></a>
+                    </div>
+                    <div id="tsPicContainer">
+                        <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
+                        <div id="tsImgSCon">
+                            <ul>
+                                <li onclick="showPic(0)" rel="MagicZoom"><img height="42" width="42" src="image/tm01.jpg" tsImgS="image/tm01.jpg"/></li>
+                                <li onclick="showPic(1)" rel="MagicZoom"><img height="42" width="42" src="image/tm02.jpg" tsImgS="image/tm02.jpg"/></li>
+                                <li onclick="showPic(2)" rel="MagicZoom"><img height="42" width="42" src="image/tm03.jpg" tsImgS="image/tm03.jpg"/></li>
+                                <li onclick="showPic(3)" rel="MagicZoom"><img height="42" width="42" src="image/tm04.jpg" tsImgS="image/tm04.jpg"/></li>
+                                <li onclick="showPic(4)" rel="MagicZoom"><img height="42" width="42" src="image/tm05.jpg" tsImgS="image/tm05.jpg"/></li>
+                                <li onclick="showPic(5)" rel="MagicZoom"><img height="42" width="42" src="image/tm06.jpg" tsImgS="image/tm06.jpg"/></li>
+                                <li onclick="showPic(6)" rel="MagicZoom"><img height="42" width="42" src="image/tm07.jpg" tsImgS="image/tm07.jpg"/></li>
+                                <li onclick="showPic(7)" rel="MagicZoom"><img height="42" width="42" src="image/tm08.jpg" tsImgS="image/tm08.jpg"/></li>
+                                <li onclick="showPic(8)" rel="MagicZoom"><img height="42" width="42" src="image/tm09.jpg" tsImgS="image/tm09.jpg"/></li>
+                                <li onclick="showPic(9)" rel="MagicZoom"><img height="42" width="42" src="image/tm10.jpg" tsImgS="image/tm10.jpg"/></li>
+                                <li onclick="showPic(10)" rel="MagicZoom"><img height="42" width="42" src="image/11.gif" tsImgS="image/11.gif"/></li>
+                                <li onclick="showPic(10)" rel="MagicZoom"><img height="42" width="42" src="image/11.gif" tsImgS="image/11.gif"/></li>
+                                <li onclick="showPic(10)" rel="MagicZoom"><img height="42" width="42" src="image/11.gif" tsImgS="image/11.gif"/></li>
+                            </ul>
+                        </div>
+                        <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
+                    </div>
+                    <img class="MagicZoomLoading" width="16" height="16" src="image/loading.gif" alt="Loading..."/>
+                </div>
+                <script src="js/ShopShow.js"></script>
+                <!--<p class="img-container"><img src="../img/detail/img-detail01.jpg" width="301" height="287" alt="苹果" /></p>
+                <ul class="tab-pro-img">
+                  <li><img src="../img/detail/img-detail01.jpg" alt="苹果" width="100%" /></li>
+                  <li><img src="../img/detail/img-detail02.jpg" alt="苹果" width="100%" /></li>
+                  <li><img src="../img/detail/img-detail01.jpg" alt="苹果" width="100%" /></li>
+                  <li><img src="../img/detail/img-detail02.jpg" alt="苹果" width="100%" /></li>
+                </ul>-->
+            </div>
+            <!--<script>
+              $(".tab-pro-img li img").click(function(){
+                var getSrc = $(this).attr("src");
+                $(".img-container img").attr("src" , getSrc);
+              })
+            </script>-->
+            <div class="text-container">
+                <h1></h1>
+                <p class="pro-text"></p>
+                <div class="pro-price">
+                    <!--<dl>
+                        <dt>促销价</dt>
+                        <dd class="low-price">￥65.80</dd>
+                    </dl>
+                    <dl>
+                        <dt>原价</dt>
+                        <dd>￥
+                            <del>169.00</del>
+                            <span>16.90元/500g</span></dd>
+                    </dl>-->
+                </div>
+                <dl class="freight">
+                    <dt>运费</dt>
+                    <dd>
+                        <span>长沙</span> 至
+                        <div class="fre-target">
+                            <a href="javascript:;">长沙市</a>
+                            <ul style="display: none;">
+                                <li>邵阳市</li>
+                                <li>郴州市</li>
+                                <li>株洲市</li>
+                                <li>常德市</li>
+                                <li>永州市</li>
+                                <li>浏阳市</li>
+                            </ul>
+                        </div>
+                        <span></span></dd>
+                </dl>
+                <script>
+                    $(".fre-target").click(function () {
+                        $(this).find("ul").toggle();
+                        $(this).find("li").click(function () {
+                            $(".fre-target > a").text($(this).text());
+                        });
+                    })
+                </script>
+                <ul class="count-total">
+                    <!--<li>月销量<span>2413</span></li>
+                    <li>累计评价<span>2413</span></li>
+                    <li>好评率<span>98%</span></li>-->
+                </ul>
+                <dl class="pro-stock">
+                    <dt>数量</dt>
+                    <dd>
+                        <input class="pro-number" type="text" value="1"/>
+                        <span class="cho-number">
+                            <span class="pro-add">
+                                <img src="img/detail/ico-add-number.gif" width="19" height="13" alt=""/>
+                            </span>
+                            <span class="pro-red"><img src="img/detail/ico-red-number.gif" width="19" height="13" alt=""/></span> </span> 件
+                        <span class="stock-total"></span></dd>
+                </dl>
+                <script>
+                    $(document).ready(function () {
+                        $(".pro-add").click(function () {
+                            var getVal = parseInt($(this).parent().prev().val());
+                            $(this).parent().prev().val(getVal + 1);
+                        });
+                        $(".pro-red").click(function () {
+                            var getVal = $(this).parent().prev().val();
+                            if (getVal > 1) {
+                                $(this).parent().prev().val(getVal - 1);
+                            }
+                        });
+                    })
+                </script>
+                <div class="buy-cart">
+                    <!--<a class="buy" href="settlement.html">立刻购买</a>-->
+                    <a class="cart" href="javascript:;">加入购物车</a>
+                </div>
+                
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="goods-evaluation">
+            <h1><a href=".goods-details" class="tab-detail active">商品详情</a><a href=".total-evaluation"
+                                                                              class="tab-evaluation">累计评价2413</a></h1>
+            <script>
+                $(".goods-evaluation h1 a").click(function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                    $(this).parent().siblings().css("display", "none");
+                    var getTarget = $(this).attr("href");
+                    $(getTarget).css("display", "block");
+                    return false;
+                })
+            </script>
+            <div class="goods-details">
+                <!--<p class="goods-img"><img src="image/商品详情1.jpg" width="732" height="139" alt="xx"/></p>
+                <p class="goods-img"><img src="image/商品详情2.jpg" width="760" height="465" alt="xx"/></p>
+                <p class="goods-img"><img src="image/商品详情3.jpg" width="760" height="465" alt="xx"/></p>-->
+            </div>
+            <div class="total-evaluation">
+                <ul>
+                    <!--数据库加载用户评价-->
+                    <!--<li>
+                        <p class="eval-content">帮同事买的，非常好，包装也很好</p>
+                        <p class="eval-time">今天</p>
+                        <p class="eval-people">金***s</p>
+                    </li> -->
+                </ul>
+                <div class="page-list">
+                    <!--数据库加载页码数-->
+                    <!--<p><span>&lt;上一页</span> <span class="page-active">1</span> <span>2</span> <span>3</span>
+                        <span>4</span> <span>5</span> <span>6</span> <span>7</span> <span>下一页&gt;</span></p>-->
+                </div>
+            </div>
+            <div class="sales_total">
+                <!--销售统计-->
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div id="footer">
+    <div class="footer-logo">小时光</div>
+    <dl class="company-info">
+        <dt>公司信息</dt>
+        <dd>TEL. 13017192666</dd>
+        <dd>wechat. alex208845</dd>
+        <dd>qq: 429637143</dd>
+    </dl>
+</div>
+
+<script src="js/login.js"></script>
+<script src="js/products_details.js"></script>
+<script>
+	(()=>{
+		$(".hot-list img").mouseover(function(){
+			$(this).addClass("animated jackInTheBox");
+		})
+		$(".hot-list img").mouseout(function(){
+			$(this).removeClass("animated jackInTheBox");
+		})
+	})()
+</script>
+<script>
+                    $(document).ready(function () {
+                        $(".cart").click(function () {
+                            var params=location.search.slice(1);
+                            var count=$(".pro-number").val();
+                            console.log(params+count)
+                            $.get("data/shopping_insert.php",params+"&count="+count).then(data=>{
+                                
+                            })
+                            if ($(".pro-simu-cart").length == 0) {
+                                $(this).parent().before("<div class='pro-simu-cart'><span class='close-simu-cart'>X</span><p class='add-cart-success'>加入购物车成功!!</p><p class='operation-cart'><span class='continue-buy' href='product.html'>继续购物</span><a class='go-settlement' href='cart.html'>去购物车</a></p></div>")
+                                $(".close-simu-cart").click(function () {
+                                    $(this).parent().remove();
+                                });
+                                $(".continue-buy").click(function () {
+                                    $(this).parent().parent().remove();
+                                });
+                            }
+                            
+                        })
+                    })
+                </script>
+</body>
+</html>
